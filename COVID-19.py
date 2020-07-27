@@ -151,8 +151,7 @@ try:
     df_dict = pd.read_excel('master.xlsx', sheet_name = None)
     for key in result:
         if df_dict[key].iloc[-1,0] == ftime :
-            print ('Done for Today!')
-            break
+            continue
         ndf = pd.DataFrame(result[key])
         ndf['Date'] = ftime
         cols = list(ndf.columns.values)
@@ -162,6 +161,7 @@ try:
     for sheet_name in df_dict.keys():
         df_dict[sheet_name].to_excel(writer, sheet_name=sheet_name, index=False)
     writer.save()
+    print ('Done for today!')
 
 except:
     for key in result:
@@ -174,3 +174,4 @@ except:
     for sheet_name in df_dict.keys():
         df_dict[sheet_name].to_excel(writer, sheet_name=sheet_name, index=False)
     writer.save()
+    print ('Done for today!')
