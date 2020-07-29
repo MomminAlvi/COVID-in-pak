@@ -78,7 +78,7 @@ def clean_dict ():
     #parameters for provinces
     parms = dict()
     where = 'OBJECTID>0'
-    objectIds = '42, 48, 144, 185, 220, 360, 416'
+    objectIds = '42, 48, 144, 185, 220, 360, 417'
     geometryType = 'esriGeometryEnvelope'
     spatialRel = 'esriSpatialRelIntersects'
     resultType = 'none'
@@ -170,7 +170,7 @@ except:
         cols = list(df.columns.values)
         df = df[[cols[-1]] + cols[0:4]]
         df_dict[key] = df
-    writer = pd.ExcelWriter('master.xlsx', engine='xlsxwriter')
+    writer = pd.ExcelWriter('nmaster.xlsx', engine='xlsxwriter')
     for sheet_name in df_dict.keys():
         df_dict[sheet_name].to_excel(writer, sheet_name=sheet_name, index=False)
     writer.save()
